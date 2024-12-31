@@ -51,8 +51,8 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			},
   			gradient: {
-  				start: '#FF6B00',
-  				end: '#FFA500',
+  				start: '#0EA5E9',
+  				end: '#2563EB',
   			}
   		},
   		borderRadius: {

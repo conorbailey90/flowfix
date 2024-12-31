@@ -3,32 +3,32 @@ import ScrollReveal from './ScrollReveal'
 
 const services = [
   {
-    icon: <Droplet className="w-12 h-12" />,
+    icon: <Droplet className="w-10 h-10" />,
     title: 'Smart Leak Detection',
     description: 'Our AI-powered leak detection system identifies and locates leaks with pinpoint accuracy.'
   },
   {
-    icon: <Wrench className="w-12 h-12" />,
+    icon: <Wrench className="w-10 h-10" />,
     title: 'High-Tech Installation',
     description: 'Advanced tools and techniques for optimal performance and longevity.'
   },
   {
-    icon: <Thermometer className="w-12 h-12" />,
+    icon: <Thermometer className="w-10 h-10" />,
     title: 'Eco-Friendly Water Heating',
     description: 'Energy-efficient water heaters with smart temperature control systems.'
   },
   {
-    icon: <Hammer className="w-12 h-12" />,
+    icon: <Hammer className="w-10 h-10" />,
     title: 'Rapid Emergency Repairs',
     description: '24/7 emergency service with our quick-response team.'
   },
   {
-    icon: <Shield className="w-12 h-12" />,
+    icon: <Shield className="w-10 h-10" />,
     title: 'Gas Safety Inspections',
     description: 'Comprehensive gas safety checks and certifications.'
   },
   {
-    icon: <Zap className="w-12 h-12" />,
+    icon: <Zap className="w-10 h-10" />,
     title: 'Boiler Installation',
     description: 'Expert installation of modern, energy-efficient boilers.'
   }
@@ -48,7 +48,7 @@ export default function Services() {
           <div className="large-number">02</div>
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-bold mb-16 relative z-10 gradient-text">
-              Cutting-Edge Solutions
+              Comprehensive Solutions
             </h2>
           </ScrollReveal>
         </div>

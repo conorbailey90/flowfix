@@ -15,7 +15,7 @@ export default function About() {
           </ScrollReveal>
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-bold mb-16 relative z-10 gradient-text">
-              Revolutionizing <br />
+              Excellence in <br />
               Plumbing Since 2003
             </h2>
           </ScrollReveal>
@@ -24,14 +24,14 @@ export default function About() {
           <ScrollReveal>
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground">
-                At FlowFix Plumbing, we're not just fixing pipes – we're redefining the plumbing industry. 
-                With over two decades of experience and a commitment to innovation, we've become the go-to 
-                plumbing service for homeowners and businesses who demand excellence.
+                At FlowFix Plumbing, we're committed to delivering exceptional plumbing services. 
+                With over two decades of experience, we've become the trusted choice for 
+                homeowners and businesses who value quality and reliability.
               </p>
               <p className="text-lg text-muted-foreground">
-                Our team of certified plumbers combines traditional expertise with cutting-edge technology 
-                to deliver unparalleled service. From smart leak detection systems to eco-friendly water 
-                solutions, we're at the forefront of plumbing advancements.
+                Our team of certified plumbers combines proven expertise with quality workmanship 
+                to deliver outstanding results. From routine maintenance to complex installations, 
+                we ensure every job is completed to the highest standards.
               </p>
             </div>
           </ScrollReveal>
@@ -44,9 +44,9 @@ export default function About() {
                 height={400}
                 className="rounded-lg w-full h-auto"
               />
-              <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground p-4 rounded-lg">
-                <p className="font-bold text-lg">20+ Years</p>
-                <p>of Excellence</p>
+              <div className="absolute -bottom-4 -right-4 bg-[#161616] text-primary-foreground p-4 rounded-lg border-2 border-gradient-start">
+                <p className="font-bold text-lg gradient-text">20+ Years</p>
+                <p className="gradient-text">of Excellence</p>
               </div>
             </div>
           </ScrollReveal>

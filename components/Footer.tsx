@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Droplet } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Droplet, X, Youtube } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -30,10 +30,15 @@ export default function Footer() {
           <div className="w-full md:w-1/4">
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin /></a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="w-[22px] h-[22px]" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="w-[22px] h-[22px]" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Youtube className="w-6 h-6" />
+              </a>
             </div>
           </div>
         </div>

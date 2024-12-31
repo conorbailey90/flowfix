@@ -14,24 +14,18 @@ export default function Hero() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    let animationFrameId: number
+
     const resizeCanvas = () => {
       const dpr = window.devicePixelRatio || 1
-      const rect = canvas.getBoundingClientRect()
+      canvas.width = window.innerWidth * dpr
+      canvas.height = window.innerHeight * dpr
       
-      // Set display size (css pixels)
-      canvas.style.width = `${rect.width}px`
-      canvas.style.height = `${rect.height}px`
+      canvas.style.width = `${window.innerWidth}px`
+      canvas.style.height = `${window.innerHeight}px`
       
-      // Set actual size in memory (scaled to account for extra pixel density)
-      canvas.width = rect.width * dpr
-      canvas.height = rect.height * dpr
-      
-      // Scale context to ensure correct drawing operations
       ctx.scale(dpr, dpr)
     }
-
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
 
     const drawGrid = () => {
       if (!ctx) return
@@ -46,7 +40,6 @@ export default function Hero() {
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)'
       ctx.lineWidth = 1
 
-      // Align to pixel grid
       for (let i = 0; i <= rows; i++) {
         ctx.beginPath()
         ctx.moveTo(0, Math.round(i * cellSize))
@@ -61,13 +54,20 @@ export default function Hero() {
         ctx.stroke()
       }
 
-      requestAnimationFrame(drawGrid)
+      animationFrameId = requestAnimationFrame(drawGrid)
     }
 
-    drawGrid()
+    const handleResize = () => {
+      resizeCanvas()
+      drawGrid()
+    }
+
+    handleResize() // Initial setup
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas)
+      window.removeEventListener('resize', handleResize)
+      cancelAnimationFrame(animationFrameId)
     }
   }, [])
 
@@ -78,23 +78,24 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full"
         style={{ zIndex: 0 }}
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background  opacity-100"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl">
           <ScrollReveal>
             <span className="text-sm uppercase tracking-wider mb-4 block text-muted-foreground">
-              Welcome to FlowFix
+              Professional Plumbing Services
             </span>
           </ScrollReveal>
           <ScrollReveal className="delay-100">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight gradient-text">
-              The Future <br /> of Plumbing <br />
-              is Here
+              Quality Plumbing <br /> Solutions You <br />
+              Can Trust
             </h1>
           </ScrollReveal>
           <ScrollReveal className="delay-200">
             <p className="text-xl mb-8 text-muted-foreground max-w-2xl">
-              Experience cutting-edge plumbing solutions with FlowFix. Our advanced technology 
-              and expert team ensure efficient, long-lasting results for all your plumbing needs.
+              Expert plumbing services delivered with precision and care. Our certified team 
+              provides reliable solutions for all your residential and commercial plumbing needs.
             </p>
           </ScrollReveal>
           <ScrollReveal className="delay-300">

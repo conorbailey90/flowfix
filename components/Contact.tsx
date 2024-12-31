@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Send } from 'lucide-react'
+import ScrollReveal from './ScrollReveal'
+import { toast } from 'sonner'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,60 +18,88 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your server or a third-party service
-    console.log('Form submitted:', formData)
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' })
+    
+    try {
+      // Your form submission logic here
+      console.log('Form submitted:', formData)
+      setFormData({ name: '', email: '', message: '' })
+      
+      // Show success toast
+      toast.success('Message sent successfully!')
+    } catch (error) {
+      // Show error toast
+      toast.error('Failed to send message. Please try again.')
+    }
   }
 
   return (
-    <section id="contact" className="py-16 bg-card text-foreground">
+    <section id="contact" className="py-32 bg-background section-wrapper">
+      <div className="grid-background" />
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
-        <div className="max-w-lg mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block mb-2 text-sm font-medium">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 bg-input border border-border rounded-md text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 bg-input border border-border rounded-md text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block mb-2 text-sm font-medium">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="w-full px-3 py-2 bg-input border border-border rounded-md text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              ></textarea>
-            </div>
-            <button type="submit" className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition duration-300 flex items-center justify-center futuristic-border">
-              Send Message
-              <Send className="ml-2 w-5 h-5" />
-            </button>
-          </form>
+        <ScrollReveal>
+          <span className="text-sm uppercase tracking-wider mb-4 block text-muted-foreground">
+            Contact
+          </span>
+        </ScrollReveal>
+        <div className="relative">
+          <div className="large-number">04</div>
+          <ScrollReveal>
+            <h2 className="text-4xl md:text-6xl font-bold mb-16 relative z-10 gradient-text">
+              Get in Touch
+            </h2>
+          </ScrollReveal>
         </div>
+        <ScrollReveal>
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-secondary p-8 rounded-lg border border-gradient-end/20">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-muted-foreground">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-gradient-start/50"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-muted-foreground">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-gradient-start/50"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-muted-foreground">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={4}
+                    className="w-full p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-gradient-start/50"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-gradient-start to-gradient-end text-white p-4 rounded-lg hover:opacity-90 transition duration-300 flex items-center justify-center"
+                >
+                  Send Message
+                  <Send className="ml-2 w-5 h-5" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )
